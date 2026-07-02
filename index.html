@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Strategy in Action</title>
+<style>
+  body {
+    font-family: Metropolis, sans-serif;
+    line-height: 1.5;
+    margin: 0 0 30px 0;
+    padding: 2.5rem 1.25rem;
+  }
+
+  .filter-bar {
+    max-width: 50rem;
+    margin: 0 auto 1.5rem auto;
+    padding: 1rem 1.25rem;
+    text-align: center;
+  }
+
+  .filter-group {
+    display: inline-flex;
+    flex-wrap: wrap;
+    background: #E9E9E9;
+    border-radius: 0.4rem;
+    padding: 0.25rem;
+    gap: 0.25rem;
+  }
+
+  .filter-btn {
+    font-family: inherit;
+    border: none;
+    background: transparent;
+    color: #003328;
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .filter-btn:hover {
+    background: #A6C8BC;
+  }
+
+  .filter-btn.active {
+    background: #338267;
+    color: #fff;
+  }
+
+  .filter-btn.active:hover {
+    background: #338267;
+  }
+
+  .timeline {
+    max-width: 50rem;
+    margin: 0 auto;
+  }
+
+  .row {
+    display: flex;
+    align-items: stretch;
+  }
+
+  .date {
+    width: 20%;
+    flex-shrink: 0;
+    text-align: right;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .date-text {
+    font-size: 0.9rem;
+    font-weight: light;
+    color: #333;
+  }
+
+  .category {
+    margin-top: 0.5rem;
+    padding-right: 0.6rem;
+    border-right: 0.2rem solid;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+    line-height: 1.3;
+    max-width: 8rem;
+    color: #338267;
+    border-color: #338267;
+  }
+
+  .line {
+    width: 0.125rem;
+    background: #ccc;
+    flex-shrink: 0;
+  }
+
+  .summary {
+    flex-grow: 1;
+    padding: 1.25rem;
+    color: #000000;
+  }
+
+  .milestone-title {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #222;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+  }
+
+  .milestone-title:hover {
+    /* text-decoration: underline; */
+    color: #006341;
+  }
+
+  .thumbnail-link {
+    display: block;
+    width: 100%;
+    max-width: 12rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .thumbnail {
+    width: 100%;
+    height: auto;
+    border-radius: 0.25rem;
+    display: block;
+    transition: filter 0.2s ease;
+  }
+
+  .thumbnail-link:hover .thumbnail {
+    filter: brightness(0.85);
+  }
+
+</style>
+</head>
+<body>
+
+<div class="filter-bar">
+  <div class="filter-group">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="Career-focused, lifelong learning">Career-focused, lifelong learning</button>
+    <button class="filter-btn" data-filter="Technology and data intelligence">Technology and data intelligence</button>
+    <button class="filter-btn" data-filter="Partnering for prosperity">Partnering for prosperity</button>
+  </div>
+</div>
+
+<div class="timeline">
+
+  <div class="row" data-url="https://www.algonquincollege.com/news/2025/10/22/engineering-accreditation-positions-algonquin-college-graduates-for-success-in-global-economy/">
+    <div class="date">
+      <div class="date-text">October 22, 2025</div>
+      <div class="category">Career-focused, lifelong learning</div>
+    </div>
+    <div class="line"></div>
+    <div class="summary">
+      <a class="milestone-title" target="_blank" rel="noopener noreferrer">Automation and Robotics Engineering achieves national accreditation</a>
+      <a class="thumbnail-link" target="_blank" rel="noopener noreferrer">
+        <img class="thumbnail" src="https://s7494.pcdn.co/strategicplan/files/2026/01/robotics.jpg">
+      </a>
+      <p>National accreditation affirms the quality and rigor of Algonquin College’s automation and robotics engineering program, ensuring it meets recognized professional standards. This alignment strengthens confidence among learners, employers, and regulatory bodies, and reinforces the College’s role in preparing engineers for a rapidly evolving technological landscape.</p>
+    </div>
+  </div>
+
+  <div class="row" data-url="https://www.algonquincollege.com/news/2025/09/10/algonquin-college-relaunches-program-for-women-in-technology-and-trades-in-an-effort-to-advance-gender-equity/">
+    <div class="date">
+      <div class="date-text">September 10, 2025</div>
+      <div class="category">Partnering for prosperity</div>
+    </div>
+    <div class="line"></div>
+    <div class="summary">
+      <a class="milestone-title" target="_blank" rel="noopener noreferrer">Strengthening belonging and persistence in technology and trades</a>
+      <a class="thumbnail-link" target="_blank" rel="noopener noreferrer">
+        <img class="thumbnail" src="https://s7494.pcdn.co/strategicplan/files/2026/01/witt.jpg">
+      </a>
+      <p>Relaunched in September 2025, Women in Tech and Trades expands support to include mentorship, networking, and community-building across technology and trades programs. Backed by multi-year funding, the initiative helps learners remain engaged, build confidence, and develop pathways toward leadership in their fields.</p>
+    </div>
+  </div>
+
+  <div class="row" data-url="https://www.algonquincollege.com/news/2025/09/09/merit-ontario-helps-power-new-lab-at-algonquin-college-to-modernize-electrical-apprenticeship-program-and-support-growing-enrolment/">
+    <div class="date">
+      <div class="date-text">September 9, 2025</div>
+      <div class="category">Partnering for prosperity</div>
+    </div>
+    <div class="line"></div>
+    <div class="summary">
+      <a class="milestone-title" target="_blank" rel="noopener noreferrer">Modern training for in-demand trades, built with industry</a>
+      <a class="thumbnail-link" target="_blank" rel="noopener noreferrer">
+        <img class="thumbnail" src="https://s7494.pcdn.co/strategicplan/files/2026/01/merit-ontario-lab.jpg">
+      </a>
+      <p>Opened in September 2025, the new electrical apprenticeship lab was developed with industry partners to provide learners with practical, job-ready experience aligned to current workforce needs.</p>
+    </div>
+  </div>
+
+  <div class="row" data-url="https://www.algonquincollege.com/college-blog/innovative-lab-launch-signals-new-era-for-science-studies-at-algonquin-college/">
+    <div class="date">
+      <div class="date-text">September 8, 2025</div>
+      <div class="category">Technology and data intelligence</div>
+    </div>
+    <div class="line"></div>
+    <div class="summary">
+      <a class="milestone-title" target="_blank" rel="noopener noreferrer">Eight new applied learning and research labs launch across the College</a>
+      <a class="thumbnail-link" target="_blank" rel="noopener noreferrer">
+        <img class="thumbnail" src="https://s7494.pcdn.co/strategicplan/files/2025/09/eight-new-labs.jpg">
+      </a>
+      <p>Access to modern tools and real-world learning environments is essential for preparing learners and for supporting innovation with industry partners.</p>
+    </div>
+  </div>
+
+  <div class="row" data-url="https://www.algonquincollege.com/applied-research/2025/05/algonquin-college-launches-ai-accelerator-hub-with-aws-canada/">
+    <div class="date">
+      <div class="date-text">June 26, 2025</div>
+      <div class="category">Technology and data intelligence</div>
+    </div>
+    <div class="line"></div>
+    <div class="summary">
+      <a class="milestone-title" target="_blank" rel="noopener noreferrer">AI Accelerator Hub with AWS Canada</a>
+      <a class="thumbnail-link" target="_blank" rel="noopener noreferrer">
+        <img class="thumbnail" src="https://s7494.pcdn.co/strategicplan/files/2025/09/ai-hub.jpg">
+      </a>
+      <p>Keeping pace with rapidly evolving technologies requires practical experience, and careful attention to risk. The AI Accelerator Hub supports learners and local organizations in applying artificial intelligence in real-world contexts, providing access to expertise, tools, and guidance that enable responsible, strategic use of AI.</p>
+    </div>
+  </div>
+
+  <!-- INSERT NEW MILESTONES ABOVE THIS LINE ONLY -->
+
+</div>
+
+<script>
+  /* FILTER BAR */
+  document.querySelectorAll('.filter-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.filter-btn').forEach(function (b) {
+        b.classList.remove('active');
+      });
+      btn.classList.add('active');
+
+      var filter = btn.dataset.filter;
+
+      document.querySelectorAll('.row').forEach(function (row) {
+        if (filter === 'all') {
+          row.style.display = '';
+        } else {
+          var category = row.querySelector('.category');
+          var categoryText = category ? category.textContent.trim() : '';
+          if (categoryText === filter) {
+            row.style.display = '';
+          } else {
+            row.style.display = 'none';
+          }
+        }
+      });
+    });
+  });
+  /* SINGLE LINK PER STORY */
+  document.querySelectorAll('.row').forEach(function (row) {
+    var url = row.dataset.url;
+    if (!url) return;
+    row.querySelectorAll('.thumbnail-link, .milestone-title').forEach(function (link) {
+      link.href = url;
+    });
+  });
+</script>
+
+</body>
+</html>
