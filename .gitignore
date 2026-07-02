@@ -1,0 +1,6 @@
+# emails and links
+*.msg
+*.url
+
+# folder
+Offline/
